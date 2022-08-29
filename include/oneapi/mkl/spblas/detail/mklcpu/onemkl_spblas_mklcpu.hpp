@@ -17,14 +17,32 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
-#ifndef _ONEMKL_HPP_
-#define _ONEMKL_HPP_
+#ifndef _ONEMKL_SPBLAS_MKLCPU_HPP_
+#define _ONEMKL_SPBLAS_MKLCPU_HPP_
+
+#pragma once
+
+#if __has_include(<sycl/sycl.hpp>)
+#include <sycl/sycl.hpp>
+#else
+#include <CL/sycl.hpp>
+#endif
+
+#include <complex>
+#include <cstdint>
 
 #include "oneapi/mkl/types.hpp"
 
-#include "oneapi/mkl/blas.hpp"
-#include "oneapi/mkl/spblas.hpp"
-#include "oneapi/mkl/lapack.hpp"
-#include "oneapi/mkl/rng.hpp"
+#include "oneapi/mkl/detail/export.hpp"
 
-#endif //_ONEMKL_HPP_
+namespace oneapi {
+namespace mkl {
+namespace mklcpu {
+
+#include "oneapi/mkl/blas/detail/onemkl_spblas_backends.hxx"
+  
+} // namespace mklcpu
+} // namespace mkl
+} // namespace oneapi
+
+#endif _ONEMKL_SPBLAS_MKLCPU_HPP_
