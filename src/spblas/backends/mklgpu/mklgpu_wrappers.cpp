@@ -17,32 +17,14 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
-#ifndef _ONEMKL_SPBLAS_MKLGPU_HPP_
-#define _ONEMKL_SPBLAS_MKLGPU_HPP_
+#include "spblas/function_table.hpp"
+#include "oneapi/mkl/spblas/detail/mklgpu/onemkl_spblas_mklcpu.hpp"
 
-#pragma once
+#define WRAPPER_VERSION 1
 
-#if __has_include(<sycl/sycl.hpp>)
-#include <sycl/sycl.hpp>
-#else
-#include <CL/sycl.hpp>
-#endif
+extern "C" ONEMKL_EXPORT spblas_function_table_t mkl_spblas_table = {
+    WRAPPER_VERSION,
+oneapi::mkl::blas::mklgpu::gemv,
+};
 
-#include <complex>
-#include <cstdint>
-
-#include "oneapi/mkl/types.hpp"
-
-#include "oneapi/mkl/detail/export.hpp"
-
-namespace oneapi {
-namespace mkl {
-namespace mklgpu {
-
-#include "oneapi/mkl/spblas/detail/onemkl_spblas_backends.hxx"
-  
-} // namespace mklgpu
-} // namespace mkl
-} // namespace oneapi
-
-#endif _ONEMKL_SPBLAS_MKLGPU_HPP_
+// NB: Ask why no header guard in this case.

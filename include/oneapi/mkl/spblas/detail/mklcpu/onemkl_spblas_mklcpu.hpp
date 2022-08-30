@@ -39,10 +39,10 @@ namespace oneapi {
 namespace mkl {
 namespace mklcpu {
 
-#include "oneapi/mkl/blas/detail/onemkl_spblas_backends.hxx"
+#include "oneapi/mkl/spblas/detail/onemkl_spblas_backends.hxx"
   
 } // namespace mklcpu
 } // namespace mkl
 } // namespace oneapi
 
-#endif _ONEMKL_SPBLAS_MKLCPU_HPP_
+#endif // _ONEMKL_SPBLAS_MKLCPU_HPP_
