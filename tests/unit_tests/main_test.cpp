@@ -25,8 +25,8 @@
 #endif
 #include <string>
 #include "test_helper.hpp"
-#include "oneapi/mkl/detail/config.hpp"
-#include "oneapi/mkl.hpp"
+//#include "oneapi/mkl/detail/config.hpp"
+//#include "oneapi/mkl.hpp"
 
 #define MAX_STR 128
 

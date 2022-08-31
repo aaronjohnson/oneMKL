@@ -53,14 +53,14 @@ static oneapi::mkl::detail::table_initializer<domain::spblas, spblas_function_ta
     function_tables[libkey].dgemv_sycl(queue, transpose_val, alpha, A_handle, x, beta, y);
   }
 
-  void gemv(oneapi::mkl::device                   libkey,
-            sycl::queue                           &queue,
-            oneapi::mkl::transpose                transpose_val,
-            const std::complex<float>             alpha,
-            oneapi::mkl::sparse::matrix_handle_t  A_handle,
-            sycl::buffer<std::complex<float>, 1>  &x,
-            const std::complex<float>             beta,
-            sycl::buffer<std::complex<float>, 1>  &y) {
+  void gemv(oneapi::mkl::device                  libkey,
+            sycl::queue                          &queue,
+            oneapi::mkl::transpose               transpose_val,
+            const std::complex<float>            alpha,
+            oneapi::mkl::sparse::matrix_handle_t A_handle,
+            sycl::buffer<std::complex<float>, 1> &x,
+            const std::complex<float>            beta,
+            sycl::buffer<std::complex<float>, 1> &y) {
     function_tables[libkey].cgemv_sycl(queue, transpose_val, alpha, A_handle, x, beta, y);
   }
 
@@ -85,8 +85,8 @@ static oneapi::mkl::detail::table_initializer<domain::spblas, spblas_function_ta
             const float                          *x,
             const float                          beta,
             const float                          *y,
-            const std::vector<sycl::event>       &dependencies = {}) {
-    function_tables[libkey].sgemv_usm_sycl(queue, transpose_val, alpha, A_handle, x, beta, y);
+            const std::vector<sycl::event>       &dependencies) {
+    function_tables[libkey].sgemv_usm_sycl(queue, transpose_val, alpha, A_handle, x, beta, y, dependencies);
   }
 
   void gemv(oneapi::mkl::device                  libkey,
@@ -97,8 +97,8 @@ static oneapi::mkl::detail::table_initializer<domain::spblas, spblas_function_ta
             const double                         *x,
             const double                         beta,
             const double                         *y,
-            const std::vector<sycl::event>       &dependencies = {}) {
-    function_tables[libkey].dgemv_usm_sycl(queue, transpose_val, alpha, A_handle, x, beta, y);
+            const std::vector<sycl::event>       &dependencies) {
+    function_tables[libkey].dgemv_usm_sycl(queue, transpose_val, alpha, A_handle, x, beta, y, dependencies);
   }
 
   void gemv(oneapi::mkl::device                  libkey,
@@ -109,8 +109,8 @@ static oneapi::mkl::detail::table_initializer<domain::spblas, spblas_function_ta
             const std::complex<float>            *x,
             const std::complex<float>            beta,
             const std::complex<float>            *y,
-            const std::vector<sycl::event>       &dependencies = {}) {
-    function_tables[libkey].cgemv_usm_sycl(queue, transpose_val, alpha, A_handle, x, beta, y);
+            const std::vector<sycl::event>       &dependencies) {
+    function_tables[libkey].cgemv_usm_sycl(queue, transpose_val, alpha, A_handle, x, beta, y, dependencies);
   }
 
   void gemv(oneapi::mkl::device                  libkey,
@@ -121,12 +121,11 @@ static oneapi::mkl::detail::table_initializer<domain::spblas, spblas_function_ta
             const std::complex<double>           *x,
             const std::complex<double>           beta,
             const std::complex<double>           *y,
-            const std::vector<sycl::event>       &dependencies = {})  {
-    function_tables[libkey].zgemv_usm_sycl(queue, transpose_val, alpha, A_handle, x, beta, y);
+            const std::vector<sycl::event>       &dependencies)  {
+    function_tables[libkey].zgemv_usm_sycl(queue, transpose_val, alpha, A_handle, x, beta, y, dependencies);
   }
 
 } //namespace detail
-} //namespace row_major
-} //namespace blas
+} //namespace spblas
 } //namespace mkl
 } //namespace oneapi

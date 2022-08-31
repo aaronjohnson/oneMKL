@@ -79,8 +79,7 @@ typedef struct {
                                   const float                          *x,
                                   const float                          beta,
                                   const float                          *y,
-                                  const std::vector<sycl::event>       &dependencies = {}
-                                 );
+                                  const std::vector<sycl::event>       &dependencies);
 
     sycl::event (*dgemv_usm_sycl)(sycl::queue                          &queue,
                                   oneapi::mkl::transpose               transpose_val,
@@ -89,8 +88,7 @@ typedef struct {
                                   const double                         *x,
                                   const double                         beta,
                                   const double                         *y,
-                                  const std::vector<sycl::event>       &dependencies = {}
-                                 );
+                                  const std::vector<sycl::event>       &dependencies);
 
     sycl::event (*cgemv_usm_sycl)(sycl::queue                          &queue,
                                   oneapi::mkl::transpose               transpose_val,
@@ -99,8 +97,7 @@ typedef struct {
                                   const std::complex<float>            *x,
                                   const std::complex<float>            beta,
                                   const std::complex<float>            *y,
-                                  const std::vector<sycl::event>       &dependencies = {}
-                                 );
+                                  const std::vector<sycl::event>       &dependencies);
 
     sycl::event (*zgemv_usm_sycl)(sycl::queue                          &queue,
                                   oneapi::mkl::transpose               transpose_val,
@@ -109,8 +106,7 @@ typedef struct {
                                   const std::complex<double>           *x,
                                   const std::complex<double>           beta,
                                   const std::complex<double>           *y,
-                                  const std::vector<sycl::event>       &dependencies = {}
-                                 );
+                                  const std::vector<sycl::event>       &dependencies);
 
 } spblas_function_table_t;
 

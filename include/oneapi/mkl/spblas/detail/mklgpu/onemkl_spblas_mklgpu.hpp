@@ -20,8 +20,6 @@
 #ifndef _ONEMKL_SPBLAS_MKLGPU_HPP_
 #define _ONEMKL_SPBLAS_MKLGPU_HPP_
 
-#pragma once
-
 #if __has_include(<sycl/sycl.hpp>)
 #include <sycl/sycl.hpp>
 #else
@@ -37,12 +35,14 @@
 
 namespace oneapi {
 namespace mkl {
+namespace spblas {
 namespace mklgpu {
 
 #include "oneapi/mkl/spblas/detail/onemkl_spblas_backends.hxx"
-  
+
 } // namespace mklgpu
+} // namespace spblas
 } // namespace mkl
 } // namespace oneapi
 
-#endif _ONEMKL_SPBLAS_MKLGPU_HPP_
+#endif // _ONEMKL_SPBLAS_MKLGPU_HPP_

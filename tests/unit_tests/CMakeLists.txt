@@ -59,6 +59,12 @@ set(rng_TEST_LIST
 
 set(rng_TEST_LINK "")
 
+# SPBLAS config
+set(spblas_TEST_LIST
+  spblas_gemv)
+
+set(spblas_TEST_LINK "")
+
 foreach(domain ${TARGET_DOMAINS})
   # Generate RT and CT test lists
   set(${domain}_TEST_LIST_RT ${${domain}_TEST_LIST})
@@ -68,7 +74,7 @@ foreach(domain ${TARGET_DOMAINS})
 
   add_executable(test_main_${domain}_ct main_test.cpp)
   target_include_directories(test_main_${domain}_ct PUBLIC ${GTEST_INCLUDE_DIR})
-  
+
   if (USE_ADD_SYCL_TO_TARGET_INTEGRATION)
     add_sycl_to_target(TARGET test_main_${domain}_ct SOURCES main_test.cpp)
   else()

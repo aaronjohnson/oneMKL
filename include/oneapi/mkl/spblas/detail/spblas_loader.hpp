@@ -40,26 +40,83 @@ namespace detail {
 
 // Buffer APIs
 
-ONEMKL_EXPORT void gemv(oneapi::mkl::device                  libkey, 
-                        sycl::queue                          &queue,
-                        oneapi::mkl::transpose               transpose_val,
-                        const fp                             alpha,
-                        oneapi::mkl::sparse::matrix_handle_t A_handle,
-                        sycl::buffer<fp, 1>                  &x,
-                        const fp                             beta,
-                        sycl::buffer<fp, 1>                  &y);
+  ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
+                          sycl::queue                           &queue,
+                          oneapi::mkl::transpose                transpose_val,
+                          const float                           alpha,
+                          oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                          sycl::buffer<float, 1>                &x,
+                          const float                           beta,
+                          sycl::buffer<float, 1>                &y);
+
+  ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
+                          sycl::queue                           &queue,
+                          oneapi::mkl::transpose                transpose_val,
+                          const double                          alpha,
+                          oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                          sycl::buffer<double, 1>               &x,
+                          const double                          beta,
+                          sycl::buffer<double, 1>               &y);
+
+  ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
+                          sycl::queue                           &queue,
+                          oneapi::mkl::transpose                transpose_val,
+                          const std::complex<float>             alpha,
+                          oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                          sycl::buffer<std::complex<float>, 1>  &x,
+                          const std::complex<float>             beta,
+                          sycl::buffer<std::complex<float>, 1>  &y);
+
+  ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
+                          sycl::queue                           &queue,
+                          oneapi::mkl::transpose                transpose_val,
+                          const std::complex<double>            alpha,
+                          oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                          sycl::buffer<std::complex<double>, 1> &x,
+                          const std::complex<double>            beta,
+                          sycl::buffer<std::complex<double>, 1> &y);
 
 // USM APIs
 
-ONEMKL_EXPORT void gemv(oneapi::mkl::device                  libkey,
-                        sycl::queue                          &queue,
-                        oneapi::mkl::transpose               transpose_val,
-                        const fp                             alpha,
-                        oneapi::mkl::sparse::matrix_handle_t A_handle,
-                        const fp                             *x,
-                        const fp                             beta,
-                        const fp                             *y,
-                        const std::vector<sycl::event>       &dependencies = {});
+  ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
+                          sycl::queue                          &queue,
+                          oneapi::mkl::transpose               transpose_val,
+                          const float                          alpha,
+                          oneapi::mkl::sparse::matrix_handle_t A_handle,
+                          const float                          *x,
+                          const float                          beta,
+                          const float                          *y,
+                          const std::vector<sycl::event>       &dependencies = {});
+
+  ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
+                          sycl::queue                          &queue,
+                          oneapi::mkl::transpose               transpose_val,
+                          const double                         alpha,
+                          oneapi::mkl::sparse::matrix_handle_t A_handle,
+                          const double                         *x,
+                          const double                         beta,
+                          const double                         *y,
+                          const std::vector<sycl::event>       &dependencies = {});
+
+  ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
+                          sycl::queue                          &queue,
+                          oneapi::mkl::transpose               transpose_val,
+                          const std::complex<float>            alpha,
+                          oneapi::mkl::sparse::matrix_handle_t A_handle,
+                          const std::complex<float>            *x,
+                          const std::complex<float>            beta,
+                          const std::complex<float>            *y,
+                          const std::vector<sycl::event>       &dependencies = {});
+
+  ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
+                          sycl::queue                          &queue,
+                          oneapi::mkl::transpose               transpose_val,
+                          const std::complex<double>           alpha,
+                          oneapi::mkl::sparse::matrix_handle_t A_handle,
+                          const std::complex<double>           *x,
+                          const std::complex<double>           beta,
+                          const std::complex<double>           *y,
+                          const std::vector<sycl::event>       &dependencies = {});
 
 } //namespace detail
 } //namespace spblas

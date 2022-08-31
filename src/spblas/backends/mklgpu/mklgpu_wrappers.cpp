@@ -18,13 +18,11 @@
 *******************************************************************************/
 
 #include "spblas/function_table.hpp"
-#include "oneapi/mkl/spblas/detail/mklgpu/onemkl_spblas_mklcpu.hpp"
+#include "oneapi/mkl/spblas/detail/mklgpu/onemkl_spblas_mklgpu.hpp"
 
 #define WRAPPER_VERSION 1
 
 extern "C" ONEMKL_EXPORT spblas_function_table_t mkl_spblas_table = {
     WRAPPER_VERSION,
-oneapi::mkl::blas::mklgpu::gemv,
+oneapi::mkl::spblas::mklgpu::gemv,
 };
-
-// NB: Ask why no header guard in this case.

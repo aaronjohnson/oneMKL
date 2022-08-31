@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright 2020-2021 Intel Corporation
+* Copyright 2022 Intel Corporation
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -17,12 +17,19 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
-#include "spblas/function_table.hpp"
-#include "oneapi/mkl/spblas/detail/mklcpu/onemkl_spblas_mklcpu.hpp"
+#include <iostream>
 
-#define WRAPPER_VERSION 1
+//
+// Description of example setup, apis used and supported floating point type precisions
+//
+void print_example_banner() {
+    std::cout << "print run time dispatch example banner" << std::endl;
+}
 
-extern "C" ONEMKL_EXPORT spblas_function_table_t mkl_spblas_table = {
-    WRAPPER_VERSION,
-oneapi::mkl::spblas::mklcpu::gemv,
-};
+//
+// Main entry point for example
+//
+int main(int argc, char** argv) {
+    print_example_banner();
+    return 0;
+}
