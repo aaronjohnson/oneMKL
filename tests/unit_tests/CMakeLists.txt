@@ -60,8 +60,7 @@ set(rng_TEST_LIST
 set(rng_TEST_LINK "")
 
 # SPBLAS config
-set(spblas_TEST_LIST
-  spblas_gemv)
+set(spblas_TEST_LIST spblas)
 
 set(spblas_TEST_LINK "")
 

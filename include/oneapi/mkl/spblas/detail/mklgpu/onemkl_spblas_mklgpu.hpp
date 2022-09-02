@@ -30,18 +30,18 @@
 #include <cstdint>
 
 #include "oneapi/mkl/types.hpp"
-
+#include "oneapi/mkl/spblas.hpp"
 #include "oneapi/mkl/detail/export.hpp"
 
 namespace oneapi {
 namespace mkl {
-namespace spblas {
+namespace sparse {
 namespace mklgpu {
 
 #include "oneapi/mkl/spblas/detail/onemkl_spblas_backends.hxx"
 
 } // namespace mklgpu
-} // namespace spblas
+} // namespace sparse
 } // namespace mkl
 } // namespace oneapi
 

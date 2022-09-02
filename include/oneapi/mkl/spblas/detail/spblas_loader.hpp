@@ -35,8 +35,18 @@
 
 namespace oneapi {
 namespace mkl {
-namespace spblas {
+namespace sparse {
 namespace detail {
+
+  // type
+  // struct
+
+  // init release matrix handle
+
+  // set csr
+
+  // direct out of mKL + add devicde prefix parameter
+  //
 
 // Buffer APIs
 
@@ -119,7 +129,7 @@ namespace detail {
                           const std::vector<sycl::event>       &dependencies = {});
 
 } //namespace detail
-} //namespace spblas
+} //namespace sparse
 } //namespace mkl
 } //namespace oneapi
 

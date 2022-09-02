@@ -17,6 +17,9 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
+// matrix handlers init/ release (2)
+
+// set csr 16
 
 // Buffer APIs
 
@@ -61,7 +64,7 @@ ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                const float                          *x,
                                const float                          beta,
                                const float                          *y,
-                               const std::vector<sycl::event>       &dependencies = {});
+                               const std::vector<sycl::event>       &dependencies);
 
 ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                oneapi::mkl::transpose               transpose_val,
@@ -70,7 +73,7 @@ ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                const double                         *x,
                                const double                         beta,
                                const double                         *y,
-                               const std::vector<sycl::event>       &dependencies = {});
+                               const std::vector<sycl::event>       &dependencies);
 
 ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                oneapi::mkl::transpose               transpose_val,
@@ -79,7 +82,7 @@ ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                const std::complex<float>            *x,
                                const std::complex<float>            beta,
                                const std::complex<float>            *y,
-                               const std::vector<sycl::event>       &dependencies = {});
+                               const std::vector<sycl::event>       &dependencies);
 
 ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                oneapi::mkl::transpose               transpose_val,
@@ -88,4 +91,4 @@ ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                const std::complex<double>           *x,
                                const std::complex<double>           beta,
                                const std::complex<double>           *y,
-                               const std::vector<sycl::event>       &dependencies = {});
+                               const std::vector<sycl::event>       &dependencies);

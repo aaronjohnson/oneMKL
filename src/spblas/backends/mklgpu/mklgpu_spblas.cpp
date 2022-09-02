@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright 2020-2021 Intel Corporation
+d* Copyright 2022 Intel Corporation
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -17,14 +17,22 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
-#include "spblas/function_table.hpp"
+#if __has_include(<sycl/sycl.hpp>)
+#include <sycl/sycl.hpp>
+#else
+#include <CL/sycl.hpp>
+#endif
+
 #include "oneapi/mkl/spblas/detail/mklcpu/onemkl_spblas_mklcpu.hpp"
 
-#define WRAPPER_VERSION 1
+namespace oneapi {
+namespace mkl {
+namespace sparse {
+namespace mklcpu {
 
-extern "C" ONEMKL_EXPORT spblas_function_table_t mkl_spblas_table = {
-    WRAPPER_VERSION,
-#define SPBLAS_BACKEND mklcpu
-#include"../mkl_common/spblas_wrappers.cxx"
-#undef SPBLAS_BACKEND
-};
+#include "../mkl_common/mkl_spblas.cxx"
+
+} // namespace mklcpu
+} // namespace sparse
+} // namespace mkl
+} // namespace oneapi

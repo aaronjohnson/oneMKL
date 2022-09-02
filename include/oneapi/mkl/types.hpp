@@ -108,14 +108,6 @@ enum class order : char {
     B = 0,
     E = 1,
 };
-
-  // SPBLAS
-
-  namespace sparse {
-    struct matrix_handle;
-    typedef struct matrix_handle *matrix_handle_t;
-  }
-
 } //namespace mkl
 } //namespace oneapi
 

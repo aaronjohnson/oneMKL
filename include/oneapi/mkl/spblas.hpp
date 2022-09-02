@@ -39,28 +39,31 @@ namespace oneapi {
 namespace mkl {
 namespace sparse {
 
-  void init_matrix_handle (oneapi::mkl::sparse::matrix_handle_t *handle);
+  struct matrix_handle;
+  typedef struct matrix_handle *matrix_handle_t;
 
-  void release_matrix_handle (oneapi::mkl::sparse::matrix_handle_t  handle,
-                              const std::vector<sycl::event>        &dependencies = {});
+  void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A);
 
-  void set_csr_data (oneapi::mkl::sparse::matrix_handle_t  handle,
-                     std::int32_t                          num_rows,
-                     std::int32_t                          num_cols,
-                     oneapi::mkl::index_base               index,
-                     sycl::buffer<std::int32_t, 1>         &row_ptr,
-                     sycl::buffer<std::int32_t, 1>         &col_ind,
-                     sycl::buffer<float, 1>                &val);
+  void release_matrix_handle(oneapi::mkl::sparse::matrix_handle_t  A,
+                              const std::vector<sycl::event>       &dependencies = {});
 
-  void set_csr_data (oneapi::mkl::sparse::matrix_handle_t  handle,
-                     std::int32_t                          num_rows,
-                     std::int32_t                          num_cols,
-                     oneapi::mkl::index_base               index,
-                     sycl::buffer<std::int32_t, 1>         &row_ptr,
-                     sycl::buffer<std::int32_t, 1>         &col_ind,
-                     sycl::buffer<double, 1>               &val);
+  void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
+                     std::int32_t                         num_rows,
+                     std::int32_t                         num_cols,
+                     oneapi::mkl::index_base              index,
+                     sycl::buffer<std::int32_t, 1>        &row_ptr,
+                     sycl::buffer<std::int32_t, 1>        &col_ind,
+                     sycl::buffer<float, 1>               &val);
 
-  void set_csr_data (oneapi::mkl::sparse::matrix_handle_t  handle,
+  void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
+                     std::int32_t                         num_rows,
+                     std::int32_t                         num_cols,
+                     oneapi::mkl::index_base              index,
+                     sycl::buffer<std::int32_t, 1>        &row_ptr,
+                     sycl::buffer<std::int32_t, 1>        &col_ind,
+                     sycl::buffer<double, 1>              &val);
+
+  void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
                      std::int32_t                          num_rows,
                      std::int32_t                          num_cols,
                      oneapi::mkl::index_base               index,
@@ -68,7 +71,7 @@ namespace sparse {
                      sycl::buffer<std::int32_t, 1>         &col_ind,
                      sycl::buffer<std::complex<float>, 1>  &val);
 
-  void set_csr_data (oneapi::mkl::sparse::matrix_handle_t  handle,
+  void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
                      std::int32_t                          num_rows,
                      std::int32_t                          num_cols,
                      oneapi::mkl::index_base               index,
@@ -76,7 +79,7 @@ namespace sparse {
                      sycl::buffer<std::int32_t, 1>         &col_ind,
                      sycl::buffer<std::complex<double>, 1> &val);
 
-  void set_csr_data (oneapi::mkl::sparse::matrix_handle_t  handle,
+  void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
                      std::int64_t                          num_rows,
                      std::int64_t                          num_cols,
                      oneapi::mkl::index_base               index,
@@ -84,7 +87,7 @@ namespace sparse {
                      sycl::buffer<std::int64_t, 1>         &col_ind,
                      sycl::buffer<float, 1>                &val);
 
-  void set_csr_data (oneapi::mkl::sparse::matrix_handle_t  handle,
+  void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
                      std::int64_t                          num_rows,
                      std::int64_t                          num_cols,
                      oneapi::mkl::index_base               index,
@@ -92,7 +95,7 @@ namespace sparse {
                      sycl::buffer<std::int64_t, 1>         &col_ind,
                      sycl::buffer<double, 1>                   &val);
 
-  void set_csr_data (oneapi::mkl::sparse::matrix_handle_t  handle,
+  void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
                      std::int64_t                          num_rows,
                      std::int64_t                          num_cols,
                      oneapi::mkl::index_base               index,
@@ -100,13 +103,145 @@ namespace sparse {
                      sycl::buffer<std::int64_t, 1>         &col_ind,
                      sycl::buffer<std::complex<float>, 1>  &val);
 
-  void set_csr_data (oneapi::mkl::sparse::matrix_handle_t  handle,
+  void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
                      std::int64_t                          num_rows,
                      std::int64_t                          num_cols,
                      oneapi::mkl::index_base               index,
                      sycl::buffer<std::int64_t, 1>         &row_ptr,
                      sycl::buffer<std::int64_t, 1>         &col_ind,
                      sycl::buffer<std::complex<double>, 1> &val);
+
+ void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int32_t *row_ptr,
+                             std::int32_t *col_ind,
+                             float *val);
+
+ void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int64_t *row_ptr,
+                             std::int64_t *col_ind,
+                             float *val);
+
+ void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int32_t *row_ptr,
+                             std::int32_t *col_ind,
+                             double *val);
+
+ void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int64_t *row_ptr,
+                             std::int64_t *col_ind,
+                             double *val);
+
+ void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int32_t *row_ptr,
+                             std::int32_t *col_ind,
+                             std::complex<float> *val);
+
+ void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int64_t *row_ptr,
+                             std::int64_t *col_ind,
+                             std::complex<float> *val);
+
+ void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int32_t *row_ptr,
+                             std::int32_t *col_ind,
+                             std::complex<double> *val);
+
+ void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int64_t *row_ptr,
+                             std::int64_t *col_ind,
+                             std::complex<double> *val);
+
+  void gemv(sycl::queue &queue,
+                     oneapi::mkl::transpose transpose_flag,
+                     const float alpha,
+                     oneapi::mkl::sparse::matrix_handle_t A,
+                     sycl::buffer<float, 1> &x,
+                     const float beta,
+                     sycl::buffer<float, 1> &y);
+
+  void gemv(sycl::queue &queue,
+                     oneapi::mkl::transpose transpose_flag,
+                     const double alpha,
+                     oneapi::mkl::sparse::matrix_handle_t A,
+                     sycl::buffer<double, 1> &x,
+                     const double beta,
+                     sycl::buffer<double, 1> &y);
+
+  void gemv(sycl::queue &queue,
+                     oneapi::mkl::transpose transpose_flag,
+                     const std::complex<float> alpha,
+                     oneapi::mkl::sparse::matrix_handle_t A,
+                     sycl::buffer<std::complex<float>, 1> &x,
+                     const std::complex<float> beta,
+                     sycl::buffer<std::complex<float>, 1> &y);
+
+  void gemv(sycl::queue &queue,
+                     oneapi::mkl::transpose transpose_flag,
+                     const std::complex<double> alpha,
+                     oneapi::mkl::sparse::matrix_handle_t A,
+                     sycl::buffer<std::complex<double>, 1> &x,
+                     const std::complex<double> beta,
+                     sycl::buffer<std::complex<double>, 1> &y);
+
+  sycl::event gemv(sycl::queue &queue,
+                                oneapi::mkl::transpose transpose_flag,
+                                const float alpha,
+                                oneapi::mkl::sparse::matrix_handle_t A,
+                                const float *x,
+                                const float beta,
+                                float *y,
+                                const std::vector<sycl::event> &dependencies = {});
+
+  sycl::event gemv(sycl::queue &queue,
+                                oneapi::mkl::transpose transpose_flag,
+                                const double alpha,
+                                oneapi::mkl::sparse::matrix_handle_t A,
+                                const double *x,
+                                const double beta,
+                                double *y,
+                                const std::vector<sycl::event> &dependencies = {});
+
+  sycl::event gemv(sycl::queue &queue,
+                                oneapi::mkl::transpose transpose_flag,
+                                const std::complex<float> alpha,
+                                oneapi::mkl::sparse::matrix_handle_t A,
+                                const std::complex<float> *x,
+                                const std::complex<float> beta,
+                                std::complex<float> *y,
+                                const std::vector<sycl::event> &dependencies = {});
+
+  sycl::event gemv(sycl::queue &queue,
+                                oneapi::mkl::transpose transpose_flag,
+                                const std::complex<double> alpha,
+                                oneapi::mkl::sparse::matrix_handle_t A,
+                                const std::complex<double> *x,
+                                const std::complex<double> beta,
+                                std::complex<double> *y,
+                                const std::vector<sycl::event> &dependencies = {});
 
 } //namespace sparse
 } //namespace mkl
