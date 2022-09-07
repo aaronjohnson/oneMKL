@@ -21,90 +21,92 @@
 
 // set csr
 
+
+
   // Buffer APIs
 
-  void gemv(sycl::queue &queue,
-            transpose transpose_flag,
-            const float alpha,
-            oneapi::mkl::sparse::matrix_handle_t handle,
-            sycl::buffer<float, 1> &x,
-            const float beta,
-            sycl::buffer<float, 1> &y) {
-    ::oneapi::mkl::sparse::gemv(queue, transpose_flag, alpha, handle, x, beta, y);
+  void gemv(sycl::queue                          &queue,
+            oneapi::mkl::transpose               transpose,
+            const float                          alpha,
+            oneapi::mkl::sparse::matrix_handle_t A,
+            sycl::buffer<float, 1>               &x,
+            const float                          beta,
+            sycl::buffer<float, 1>               &y) {
+    ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y);
   }
 
-  void gemv(sycl::queue &queue,
-            transpose transpose_flag,
-            const double alpha,
-            oneapi::mkl::sparse::matrix_handle_t handle,
-            sycl::buffer<double, 1> &x,
-            const double beta,
-            sycl::buffer<double, 1> &y) {
-    ::oneapi::mkl::sparse::gemv(queue, transpose_flag, alpha, handle, x, beta, y);
+  void gemv(sycl::queue                          &queue,
+            oneapi::mkl::transpose               transpose,
+            const double                         alpha,
+            oneapi::mkl::sparse::matrix_handle_t A,
+            sycl::buffer<double, 1>              &x,
+            const double                         beta,
+            sycl::buffer<double, 1>              &y) {
+    ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y);
   }
 
-  void gemv(sycl::queue &queue,
-            transpose transpose_flag,
-            const std::complex<float> alpha,
-            oneapi::mkl::sparse::matrix_handle_t handle,
+  void gemv(sycl::queue                          &queue,
+            oneapi::mkl::transpose               transpose,
+            const std::complex<float>            alpha,
+            oneapi::mkl::sparse::matrix_handle_t A,
             sycl::buffer<std::complex<float>, 1> &x,
-            const std::complex<float> beta,
+            const std::complex<float>            beta,
             sycl::buffer<std::complex<float>, 1> &y) {
-    ::oneapi::mkl::sparse::gemv(queue, transpose_flag, alpha, handle, x, beta, y);
+    ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y);
   }
 
-  void gemv(sycl::queue &queue,
-            transpose transpose_flag,
-            const std::complex<double> alpha,
-            oneapi::mkl::sparse::matrix_handle_t handle,
+  void gemv(sycl::queue                           &queue,
+            oneapi::mkl::transpose                transpose,
+            const std::complex<double>            alpha,
+            oneapi::mkl::sparse::matrix_handle_t  A,
             sycl::buffer<std::complex<double>, 1> &x,
-            const std::complex<double> beta,
+            const std::complex<double>            beta,
             sycl::buffer<std::complex<double>, 1> &y) {
-    ::oneapi::mkl::sparse::gemv(queue, transpose_flag, alpha, handle, x, beta, y);
+    ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y);
   }
 
   // USM APIs
 
-  sycl::event gemv(sycl::queue &queue,
-                   transpose transpose_flag,
-                   const float alpha,
-                   oneapi::mkl::sparse::matrix_handle_t handle,
-                   const float *x,
-                   const float beta,
-                   float *y,
-                   const std::vector<sycl::event> &dependencies) {
-    return ::oneapi::mkl::sparse::gemv(queue, transpose_flag, alpha, handle, x, beta, y, dependencies);
+  sycl::event gemv(sycl::queue                          &queue,
+                   oneapi::mkl::transpose               transpose,
+                   const float                          alpha,
+                   oneapi::mkl::sparse::matrix_handle_t A,
+                   const float                          *x,
+                   const float                          beta,
+                   float                                *y,
+                   const std::vector<sycl::event>       &dependencies) {
+    return ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y, dependencies);
   }
 
-  sycl::event gemv(sycl::queue &queue,
-                   transpose transpose_flag,
-                   const double alpha,
-                   oneapi::mkl::sparse::matrix_handle_t handle,
-                   const double *x,
-                   const double beta,
-                   double *y,
-                   const std::vector<sycl::event> &dependencies) {
-    return ::oneapi::mkl::sparse::gemv(queue, transpose_flag, alpha, handle, x, beta, y, dependencies);
+  sycl::event gemv(sycl::queue                          &queue,
+                   oneapi::mkl::transpose               transpose,
+                   const double                         alpha,
+                   oneapi::mkl::sparse::matrix_handle_t A,
+                   const double                         *x,
+                   const double                         beta,
+                   double                               *y,
+                   const std::vector<sycl::event>       &dependencies) {
+    return ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y, dependencies);
   }
 
-  sycl::event gemv(sycl::queue &queue,
-                   transpose transpose_flag,
-                   const std::complex<float> alpha,
-                   oneapi::mkl::sparse::matrix_handle_t handle,
-                   const std::complex<float> *x,
-                   const std::complex<float> beta,
-                   std::complex<float> *y,
-                   const std::vector<sycl::event> &dependencies) {
-    return ::oneapi::mkl::sparse::gemv(queue, transpose_flag, alpha, handle, x, beta, y, dependencies);
+  sycl::event gemv(sycl::queue                          &queue,
+                   oneapi::mkl::transpose               transpose,
+                   const std::complex<float>            alpha,
+                   oneapi::mkl::sparse::matrix_handle_t A,
+                   const std::complex<float>            *x,
+                   const std::complex<float>            beta,
+                   std::complex<float>                  *y,
+                   const std::vector<sycl::event>       &dependencies) {
+    return ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y, dependencies);
   }
 
-  sycl::event gemv(sycl::queue &queue,
-                   transpose transpose_flag,
-                   const std::complex<double> alpha,
-                   oneapi::mkl::sparse::matrix_handle_t handle,
-                   const std::complex<double> *x,
-                   const std::complex<double> beta,
-                   std::complex<double> *y,
-                   const std::vector<sycl::event> &dependencies) {
-    return ::oneapi::mkl::sparse::gemv(queue, transpose_flag, alpha, handle, x, beta, y, dependencies);
+  sycl::event gemv(sycl::queue                          &queue,
+                   oneapi::mkl::transpose               transpose,
+                   const std::complex<double>           alpha,
+                   oneapi::mkl::sparse::matrix_handle_t A,
+                   const std::complex<double>           *x,
+                   const std::complex<double>           beta,
+                   std::complex<double>                 *y,
+                   const std::vector<sycl::event>       &dependencies) {
+    return ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y, dependencies);
   }

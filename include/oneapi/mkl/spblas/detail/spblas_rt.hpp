@@ -31,22 +31,22 @@
 #include "oneapi/mkl/types.hpp"
 #include "oneapi/mkl/exceptions.hpp"
 #include "oneapi/mkl/detail/get_device_id.hpp"
-#include "oneapi/mkl/lapack/detail/lapack_loader.hpp"
+#include "oneapi/mkl/spblas/detail/spblas_loader.hpp"
 
 namespace oneapi {
 namespace mkl {
 namespace sbplas {
 
-  static inline void init_matrix_handle(matrix_handle_t *A) {
+  static inline void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A) {
     detail::init_matrix_handle(A);
   }
 
-  static inline void release_matrix_handle(matrix_handle_t *A,
+  static inline void release_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A,
                                            const std::vector<sycl::event> &dependencies) {
     detail::release_matrix_handle(A, dependencies);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int32_t num_rows,
                              const std::int32_t num_cols,
                              oneapi::mkl::index_base index,
@@ -56,7 +56,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int64_t num_rows,
                              const std::int64_t num_cols,
                              oneapi::mkl::index_base index,
@@ -66,7 +66,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int32_t num_rows,
                              const std::int32_t num_cols,
                              oneapi::mkl::index_base index,
@@ -76,7 +76,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int64_t num_rows,
                              const std::int64_t num_cols,
                              oneapi::mkl::index_base index,
@@ -86,7 +86,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int32_t num_rows,
                              const std::int32_t num_cols,
                              oneapi::mkl::index_base index,
@@ -96,7 +96,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int64_t num_rows,
                              const std::int64_t num_cols,
                              oneapi::mkl::index_base index,
@@ -106,7 +106,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int32_t num_rows,
                              const std::int32_t num_cols,
                              oneapi::mkl::index_base index,
@@ -116,7 +116,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int64_t num_rows,
                              const std::int64_t num_cols,
                              oneapi::mkl::index_base index,
@@ -126,7 +126,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int32_t num_rows,
                              const std::int32_t num_cols,
                              oneapi::mkl::index_base index,
@@ -136,7 +136,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int64_t num_rows,
                              const std::int64_t num_cols,
                              oneapi::mkl::index_base index,
@@ -146,7 +146,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int32_t num_rows,
                              const std::int32_t num_cols,
                              oneapi::mkl::index_base index,
@@ -156,7 +156,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int64_t num_rows,
                              const std::int64_t num_cols,
                              oneapi::mkl::index_base index,
@@ -166,7 +166,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int32_t num_rows,
                              const std::int32_t num_cols,
                              oneapi::mkl::index_base index,
@@ -176,7 +176,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int64_t num_rows,
                              const std::int64_t num_cols,
                              oneapi::mkl::index_base index,
@@ -186,7 +186,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int32_t num_rows,
                              const std::int32_t num_cols,
                              oneapi::mkl::index_base index,
@@ -196,7 +196,7 @@ namespace sbplas {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
-  static inline void set_csr_data(matrix_handle_t A,
+  static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                              const std::int64_t num_rows,
                              const std::int64_t num_cols,
                              oneapi::mkl::index_base index,
@@ -208,33 +208,33 @@ namespace sbplas {
 
   // Buffer APIs
 
-  static inline void gemv(sycl::queue                           &queue,
-                          oneapi::mkl::transpose                transpose_val,
-                          const float                           alpha,
-                          oneapi::mkl::sparse::matrix_handle_t  A,
-                          sycl::buffer<float, 1>                &x,
-                          const float                           beta,
-                          sycl::buffer<float, 1>                &y) {
+  static inline void gemv(sycl::queue                          &queue,
+                          oneapi::mkl::transpose               transpose_val,
+                          const float                          alpha,
+                          oneapi::mkl::sparse::matrix_handle_t A,
+                          sycl::buffer<float, 1>               &x,
+                          const float                          beta,
+                          sycl::buffer<float, 1>               &y) {
     detail::gemv(get_device_id(queue), queue, transpose_val, alpha, A, x, beta, y);
   }
 
-  static inline void gemv(sycl::queue                           &queue,
-                          oneapi::mkl::transpose                transpose_val,
-                          const double                          alpha,
-                          oneapi::mkl::sparse::matrix_handle_t  A,
-                          sycl::buffer<double, 1>               &x,
-                          const double                          beta,
-                          sycl::buffer<double, 1>               &y) {
+  static inline void gemv(sycl::queue                          &queue,
+                          oneapi::mkl::transpose               transpose_val,
+                          const double                         alpha,
+                          oneapi::mkl::sparse::matrix_handle_t A,
+                          sycl::buffer<double, 1>              &x,
+                          const double                         beta,
+                          sycl::buffer<double, 1>              &y) {
     detail::gemv(get_device_id(queue), queue, transpose_val, alpha, A, x, beta, y);
   }
 
-  static inline void gemv(sycl::queue                           &queue,
-                          oneapi::mkl::transpose                transpose_val,
-                          const std::complex<float>             alpha,
-                          oneapi::mkl::sparse::matrix_handle_t  A,
-                          sycl::buffer<std::complex<float>, 1>  &x,
-                          const std::complex<float>             beta,
-                          sycl::buffer<std::complex<float>, 1>  &y) {
+  static inline void gemv(sycl::queue                          &queue,
+                          oneapi::mkl::transpose               transpose_val,
+                          const std::complex<float>            alpha,
+                          oneapi::mkl::sparse::matrix_handle_t A,
+                          sycl::buffer<std::complex<float>, 1> &x,
+                          const std::complex<float>            beta,
+                          sycl::buffer<std::complex<float>, 1> &y) {
     detail::gemv(get_device_id(queue), queue, transpose_val, alpha, A, x, beta, y);
   }
 

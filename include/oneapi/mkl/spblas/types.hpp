@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright 2020-2021 Intel Corporation
+* Copyright 2021 Intel Corporation
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -17,14 +17,15 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
-#ifndef _ONEMKL_HPP_
-#define _ONEMKL_HPP_
+#pragma once
 
-#include "oneapi/mkl/types.hpp"
+namespace oneapi {
+namespace mkl {
+namespace sparse {
 
-#include "oneapi/mkl/blas.hpp"
-#include "oneapi/mkl/lapack.hpp"
-#include "oneapi/mkl/rng.hpp"
-#include "oneapi/mkl/spblas.hpp"
+  struct matrix_handle;
+  typedef struct matrix_handle *matrix_handle_t;
 
-#endif //_ONEMKL_HPP_
+}
+}
+}
