@@ -17,16 +17,145 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
-// matrix handlers init/ release (2)
+  ONEMKL_EXPORT void init_matrix_handle(matrix_handle_t *handle);
 
-// set csr 16
+  ONEMKL_EXPORT void release_matrix_handle(matrix_handle_t *handle,
+                                           const std::vector<sycl::event> &dependencies = {});
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             sycl::buffer<std::int32_t, 1> &row_ptr,
+                             sycl::buffer<std::int32_t, 1> &col_ind,
+                             sycl::buffer<float, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             sycl::buffer<std::int64_t, 1> &row_ptr,
+                             sycl::buffer<std::int64_t, 1> &col_ind,
+                             sycl::buffer<float, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             sycl::buffer<std::int32_t, 1> &row_ptr,
+                             sycl::buffer<std::int32_t, 1> &col_ind,
+                             sycl::buffer<double, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             sycl::buffer<std::int64_t, 1> &row_ptr,
+                             sycl::buffer<std::int64_t, 1> &col_ind,
+                             sycl::buffer<double, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             sycl::buffer<std::int32_t, 1> &row_ptr,
+                             sycl::buffer<std::int32_t, 1> &col_ind,
+                             sycl::buffer<std::complex<float>, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             sycl::buffer<std::int64_t, 1> &row_ptr,
+                             sycl::buffer<std::int64_t, 1> &col_ind,
+                             sycl::buffer<std::complex<float>, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             sycl::buffer<std::int32_t, 1> &row_ptr,
+                             sycl::buffer<std::int32_t, 1> &col_ind,
+                             sycl::buffer<std::complex<double>, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             sycl::buffer<std::int64_t, 1> &row_ptr,
+                             sycl::buffer<std::int64_t, 1> &col_ind,
+                             sycl::buffer<std::complex<double>, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int32_t *row_ptr,
+                             std::int32_t *col_ind,
+                             float *val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int64_t *row_ptr,
+                             std::int64_t *col_ind,
+                             float *val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int32_t *row_ptr,
+                             std::int32_t *col_ind,
+                             double *val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int64_t *row_ptr,
+                             std::int64_t *col_ind,
+                             double *val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int32_t *row_ptr,
+                             std::int32_t *col_ind,
+                             std::complex<float> *val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int64_t *row_ptr,
+                             std::int64_t *col_ind,
+                             std::complex<float> *val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int32_t num_rows,
+                             const std::int32_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int32_t *row_ptr,
+                             std::int32_t *col_ind,
+                             std::complex<double> *val);
+
+  ONEMKL_EXPORT void set_csr_data(matrix_handle_t handle,
+                             const std::int64_t num_rows,
+                             const std::int64_t num_cols,
+                             oneapi::mkl::index_base index,
+                             std::int64_t *row_ptr,
+                             std::int64_t *col_ind,
+                             std::complex<double> *val);
 
 // Buffer APIs
 
 ONEMKL_EXPORT void gemv(sycl::queue                           &queue,
                         oneapi::mkl::transpose                transpose_val,
                         const float                           alpha,
-                        oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                        oneapi::mkl::sparse::matrix_handle_t  A,
                         sycl::buffer<float, 1>                &x,
                         const float                           beta,
                         sycl::buffer<float, 1>                &y);
@@ -34,7 +163,7 @@ ONEMKL_EXPORT void gemv(sycl::queue                           &queue,
 ONEMKL_EXPORT void gemv(sycl::queue                           &queue,
                         oneapi::mkl::transpose                transpose_val,
                         const double                          alpha,
-                        oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                        oneapi::mkl::sparse::matrix_handle_t  A,
                         sycl::buffer<double, 1>               &x,
                         const double                          beta,
                         sycl::buffer<double, 1>               &y);
@@ -42,7 +171,7 @@ ONEMKL_EXPORT void gemv(sycl::queue                           &queue,
 ONEMKL_EXPORT void gemv(sycl::queue                           &queue,
                         oneapi::mkl::transpose                transpose_val,
                         const std::complex<float>             alpha,
-                        oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                        oneapi::mkl::sparse::matrix_handle_t  A,
                         sycl::buffer<std::complex<float>, 1>  &x,
                         const std::complex<float>             beta,
                         sycl::buffer<std::complex<float>, 1>  &y);
@@ -50,7 +179,7 @@ ONEMKL_EXPORT void gemv(sycl::queue                           &queue,
 ONEMKL_EXPORT void gemv(sycl::queue                           &queue,
                         oneapi::mkl::transpose                transpose_val,
                         const std::complex<double>            alpha,
-                        oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                        oneapi::mkl::sparse::matrix_handle_t  A,
                         sycl::buffer<std::complex<double>, 1> &x,
                         const std::complex<double>            beta,
                         sycl::buffer<std::complex<double>, 1> &y);
@@ -60,7 +189,7 @@ ONEMKL_EXPORT void gemv(sycl::queue                           &queue,
 ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                oneapi::mkl::transpose               transpose_val,
                                const float                          alpha,
-                               oneapi::mkl::sparse::matrix_handle_t A_handle,
+                               oneapi::mkl::sparse::matrix_handle_t A,
                                const float                          *x,
                                const float                          beta,
                                const float                          *y,
@@ -69,7 +198,7 @@ ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
 ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                oneapi::mkl::transpose               transpose_val,
                                const double                         alpha,
-                               oneapi::mkl::sparse::matrix_handle_t A_handle,
+                               oneapi::mkl::sparse::matrix_handle_t A,
                                const double                         *x,
                                const double                         beta,
                                const double                         *y,
@@ -78,7 +207,7 @@ ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
 ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                oneapi::mkl::transpose               transpose_val,
                                const std::complex<float>            alpha,
-                               oneapi::mkl::sparse::matrix_handle_t A_handle,
+                               oneapi::mkl::sparse::matrix_handle_t A,
                                const std::complex<float>            *x,
                                const std::complex<float>            beta,
                                const std::complex<float>            *y,
@@ -87,7 +216,7 @@ ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
 ONEMKL_EXPORT sycl::event gemv(sycl::queue                          &queue,
                                oneapi::mkl::transpose               transpose_val,
                                const std::complex<double>           alpha,
-                               oneapi::mkl::sparse::matrix_handle_t A_handle,
+                               oneapi::mkl::sparse::matrix_handle_t A,
                                const std::complex<double>           *x,
                                const std::complex<double>           beta,
                                const std::complex<double>           *y,

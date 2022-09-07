@@ -38,23 +38,167 @@ namespace mkl {
 namespace sparse {
 namespace detail {
 
-  // type
-  // struct
+  struct matrix_handle;
+  typedef struct matrix_handle *matrix_handle_t;
 
-  // init release matrix handle
+  ONEMKL_EXPORT void init_matrix_handle(oneapi::mkl::device libkey,
+                                        matrix_handle_t *A);
 
-  // set csr
+  ONEMKL_EXPORT void release_matrix_handle(oneapi::mkl::device libkey,
+                                           matrix_handle_t *A,
+                                           const std::vector<sycl::event> &dependencies = {});
 
-  // direct out of mKL + add devicde prefix parameter
-  //
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int32_t num_rows,
+                                  const std::int32_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  sycl::buffer<std::int32_t, 1> &row_ptr,
+                                  sycl::buffer<std::int32_t, 1> &col_ind,
+                                  sycl::buffer<float, 1> &val);
 
-// Buffer APIs
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int64_t num_rows,
+                                  const std::int64_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  sycl::buffer<std::int64_t, 1> &row_ptr,
+                                  sycl::buffer<std::int64_t, 1> &col_ind,
+                                  sycl::buffer<float, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int32_t num_rows,
+                                  const std::int32_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  sycl::buffer<std::int32_t, 1> &row_ptr,
+                                  sycl::buffer<std::int32_t, 1> &col_ind,
+                                  sycl::buffer<double, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int64_t num_rows,
+                                  const std::int64_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  sycl::buffer<std::int64_t, 1> &row_ptr,
+                                  sycl::buffer<std::int64_t, 1> &col_ind,
+                                  sycl::buffer<double, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int32_t num_rows,
+                                  const std::int32_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  sycl::buffer<std::int32_t, 1> &row_ptr,
+                                  sycl::buffer<std::int32_t, 1> &col_ind,
+                                  sycl::buffer<std::complex<float>, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int64_t num_rows,
+                                  const std::int64_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  sycl::buffer<std::int64_t, 1> &row_ptr,
+                                  sycl::buffer<std::int64_t, 1> &col_ind,
+                                  sycl::buffer<std::complex<float>, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int32_t num_rows,
+                                  const std::int32_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  sycl::buffer<std::int32_t, 1> &row_ptr,
+                                  sycl::buffer<std::int32_t, 1> &col_ind,
+                                  sycl::buffer<std::complex<double>, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int64_t num_rows,
+                                  const std::int64_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  sycl::buffer<std::int64_t, 1> &row_ptr,
+                                  sycl::buffer<std::int64_t, 1> &col_ind,
+                                  sycl::buffer<std::complex<double>, 1> &val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int32_t num_rows,
+                                  const std::int32_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  std::int32_t *row_ptr,
+                                  std::int32_t *col_ind,
+                                  float *val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int64_t num_rows,
+                                  const std::int64_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  std::int64_t *row_ptr,
+                                  std::int64_t *col_ind,
+                                  float *val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int32_t num_rows,
+                                  const std::int32_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  std::int32_t *row_ptr,
+                                  std::int32_t *col_ind,
+                                  double *val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int64_t num_rows,
+                                  const std::int64_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  std::int64_t *row_ptr,
+                                  std::int64_t *col_ind,
+                                  double *val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int32_t num_rows,
+                                  const std::int32_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  std::int32_t *row_ptr,
+                                  std::int32_t *col_ind,
+                                  std::complex<float> *val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int64_t num_rows,
+                                  const std::int64_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  std::int64_t *row_ptr,
+                                  std::int64_t *col_ind,
+                                  std::complex<float> *val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int32_t num_rows,
+                                  const std::int32_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  std::int32_t *row_ptr,
+                                  std::int32_t *col_ind,
+                                  std::complex<double> *val);
+
+  ONEMKL_EXPORT void set_csr_data(oneapi::mkl::device libkey,
+                                  matrix_handle_t A,
+                                  const std::int64_t num_rows,
+                                  const std::int64_t num_cols,
+                                  oneapi::mkl::index_base index,
+                                  std::int64_t *row_ptr,
+                                  std::int64_t *col_ind,
+                                  std::complex<double> *val);
+
+  // Buffer APIs
 
   ONEMKL_EXPORT void gemv(oneapi::mkl::device libkey,
                           sycl::queue                           &queue,
                           oneapi::mkl::transpose                transpose_val,
                           const float                           alpha,
-                          oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                          oneapi::mkl::sparse::matrix_handle_t  A,
                           sycl::buffer<float, 1>                &x,
                           const float                           beta,
                           sycl::buffer<float, 1>                &y);
@@ -63,7 +207,7 @@ namespace detail {
                           sycl::queue                           &queue,
                           oneapi::mkl::transpose                transpose_val,
                           const double                          alpha,
-                          oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                          oneapi::mkl::sparse::matrix_handle_t  A,
                           sycl::buffer<double, 1>               &x,
                           const double                          beta,
                           sycl::buffer<double, 1>               &y);
@@ -72,7 +216,7 @@ namespace detail {
                           sycl::queue                           &queue,
                           oneapi::mkl::transpose                transpose_val,
                           const std::complex<float>             alpha,
-                          oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                          oneapi::mkl::sparse::matrix_handle_t  A,
                           sycl::buffer<std::complex<float>, 1>  &x,
                           const std::complex<float>             beta,
                           sycl::buffer<std::complex<float>, 1>  &y);
@@ -81,7 +225,7 @@ namespace detail {
                           sycl::queue                           &queue,
                           oneapi::mkl::transpose                transpose_val,
                           const std::complex<double>            alpha,
-                          oneapi::mkl::sparse::matrix_handle_t  A_handle,
+                          oneapi::mkl::sparse::matrix_handle_t  A,
                           sycl::buffer<std::complex<double>, 1> &x,
                           const std::complex<double>            beta,
                           sycl::buffer<std::complex<double>, 1> &y);
@@ -92,7 +236,7 @@ namespace detail {
                           sycl::queue                          &queue,
                           oneapi::mkl::transpose               transpose_val,
                           const float                          alpha,
-                          oneapi::mkl::sparse::matrix_handle_t A_handle,
+                          oneapi::mkl::sparse::matrix_handle_t A,
                           const float                          *x,
                           const float                          beta,
                           const float                          *y,
@@ -102,7 +246,7 @@ namespace detail {
                           sycl::queue                          &queue,
                           oneapi::mkl::transpose               transpose_val,
                           const double                         alpha,
-                          oneapi::mkl::sparse::matrix_handle_t A_handle,
+                          oneapi::mkl::sparse::matrix_handle_t A,
                           const double                         *x,
                           const double                         beta,
                           const double                         *y,
@@ -112,7 +256,7 @@ namespace detail {
                           sycl::queue                          &queue,
                           oneapi::mkl::transpose               transpose_val,
                           const std::complex<float>            alpha,
-                          oneapi::mkl::sparse::matrix_handle_t A_handle,
+                          oneapi::mkl::sparse::matrix_handle_t A,
                           const std::complex<float>            *x,
                           const std::complex<float>            beta,
                           const std::complex<float>            *y,
@@ -122,7 +266,7 @@ namespace detail {
                           sycl::queue                          &queue,
                           oneapi::mkl::transpose               transpose_val,
                           const std::complex<double>           alpha,
-                          oneapi::mkl::sparse::matrix_handle_t A_handle,
+                          oneapi::mkl::sparse::matrix_handle_t A,
                           const std::complex<double>           *x,
                           const std::complex<double>           beta,
                           const std::complex<double>           *y,
