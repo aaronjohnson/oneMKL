@@ -17,8 +17,7 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
-#ifndef _ONEMKL_SPBLAS_LOADER_HPP_
-#define _ONEMKL_SPBLAS_LOADER_HPP_
+#pragma once
 
 #include <complex>
 #include <cstdint>
@@ -29,7 +28,7 @@
 #endif
 
 #include "oneapi/mkl/types.hpp"
-#include "oneapi/mkl/spblas.hpp"
+#include "oneapi/mkl/spblas/types.hpp"
 #include "oneapi/mkl/detail/export.hpp"
 #include "oneapi/mkl/detail/get_device_id.hpp"
 
@@ -272,5 +271,3 @@ namespace detail {
 } //namespace sparse
 } //namespace mkl
 } //namespace oneapi
-
-#endif //_ONEMKL_SPBLAS_LOADER_HPP_

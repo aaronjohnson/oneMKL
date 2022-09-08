@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright 2020-2021 Intel Corporation
+* Copyright 2022 Intel Corporation
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -17,33 +17,15 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 
-#ifndef _ONEMKL_SPBLAS_MKLCPU_HPP_
-#define _ONEMKL_SPBLAS_MKLCPU_HPP_
-
-#if __has_include(<sycl/sycl.hpp>)
-#include <sycl/sycl.hpp>
-#else
-#include <CL/sycl.hpp>
-#endif
-
-#include <complex>
-#include <cstdint>
-
-#include "oneapi/mkl/types.hpp"
-#include "oneapi/mkl/spblas/types.hpp"
-//#include "oneapi/mkl/spblas.hpp"
-#include "oneapi/mkl/detail/export.hpp"
+#pragma once
 
 namespace oneapi {
 namespace mkl {
 namespace sparse {
-namespace mklcpu {
 
-#include "oneapi/mkl/spblas/detail/onemkl_spblas_backends.hxx"
+  struct matrix_handle;
+  typedef struct matrix_handle *matrix_handle_t;
 
-} // namespace mklcpu
 } // namespace sparse
 } // namespace mkl
 } // namespace oneapi
-
-#endif // _ONEMKL_SPBLAS_MKLCPU_HPP_

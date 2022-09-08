@@ -136,7 +136,7 @@ static std::map<domain, std::map<device, std::vector<const char*>>> libraries = 
 static std::map<domain, const char*> table_names = { { domain::blas, "mkl_blas_table" },
                                                      { domain::lapack, "mkl_lapack_table" },
                                                      { domain::rng, "mkl_rng_table" },
-                                                     { domain::spblas, "mkl_sbplas_table" }
+                                                     { domain::spblas, "mkl_spblas_table" }
                                                    };
 
 } //namespace mkl

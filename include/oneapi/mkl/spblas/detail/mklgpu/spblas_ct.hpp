@@ -28,17 +28,18 @@
 #include <cstdint>
 
 #include "oneapi/mkl/types.hpp"
+#include "oneapi/mkl/spblas/types.hpp"
 #include "oneapi/mkl/detail/backend_selector.hpp"
 #include "oneapi/mkl/spblas/detail/mklgpu/onemkl_spblas_mklgpu.hpp"
 
 namespace oneapi {
 namespace mkl {
-namespace spblas {
+namespace sparse {
 
 #define BACKEND mklgpu
-#include "oneapi/mkl/sbplas/detail/spblas_ct.hxx"
+#include "oneapi/mkl/spblas/detail/spblas_ct.hxx"
 #undef BACKEND
 
-} //namespace spblas
+} //namespace sparse
 } //namespace mkl
 } //namespace oneapi

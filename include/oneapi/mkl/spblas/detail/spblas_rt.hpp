@@ -29,13 +29,14 @@
 #endif
 
 #include "oneapi/mkl/types.hpp"
+#include "oneapi/mkl/spblas/types.hpp"
 #include "oneapi/mkl/exceptions.hpp"
 #include "oneapi/mkl/detail/get_device_id.hpp"
 #include "oneapi/mkl/spblas/detail/spblas_loader.hpp"
 
 namespace oneapi {
 namespace mkl {
-namespace sbplas {
+namespace sparse {
 
   static inline void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A) {
     detail::init_matrix_handle(A);
@@ -293,6 +294,6 @@ namespace sbplas {
                           const std::vector<sycl::event>       &dependencies) {
     detail::gemv(get_device_id(queue), queue, transpose_val, alpha, A, x, beta, y, dependencies);
   }
-}
-}
-}
+} // namespace sparse
+} // namespace mkl
+} // namespace oneapi
