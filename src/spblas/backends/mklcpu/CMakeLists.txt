@@ -22,7 +22,7 @@ set(LIB_OBJ ${LIB_NAME}_obj)
 
 find_package(MKL REQUIRED)
 set(SOURCES
-  mklcpu_gemv.cpp
+  mklcpu_spblas.cpp
   $<$<BOOL:${BUILD_SHARED_LIBS}>: mklcpu_wrappers.cpp>)
 add_library(${LIB_NAME})
 add_library(${LIB_OBJ} OBJECT ${SOURCES})

@@ -28,7 +28,6 @@
 #include <cstdint>
 
 #include "oneapi/mkl/types.hpp"
-#include "oneapi/mkl/spblas/types.hpp"
 #include "oneapi/mkl/detail/backend_selector.hpp"
 #include "oneapi/mkl/spblas/detail/mklcpu/onemkl_spblas_mklcpu.hpp"
 

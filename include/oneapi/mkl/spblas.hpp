@@ -44,8 +44,8 @@ namespace sparse {
 
   void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A);
 
-  void release_matrix_handle(oneapi::mkl::sparse::matrix_handle_t  A,
-                              const std::vector<sycl::event>       &dependencies = {});
+  void release_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A,
+                              const std::vector<sycl::event>      &dependencies = {});
 
   void set_csr_data(oneapi::mkl::sparse::matrix_handle_t  A,
                      std::int32_t                         num_rows,

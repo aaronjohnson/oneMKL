@@ -23,7 +23,7 @@ find_package(MKL REQUIRED)
 
 add_library(${LIB_NAME})
 add_library(${LIB_OBJ} OBJECT
-  mklgpu_gemv.cpp
+  mklgpu_spblas.cpp
   $<$<BOOL:${BUILD_SHARED_LIBS}>: mklgpu_wrappers.cpp>
 )
 

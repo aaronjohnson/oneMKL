@@ -28,12 +28,13 @@
 #include <CL/sycl.hpp>
 #endif
 #include "oneapi/mkl/types.hpp"
+#include "oneapi/mkl/spblas.hpp"
 
 typedef struct {
   int version;
 
   void (*init_matrix_handle)(oneapi::mkl::sparse::matrix_handle_t *A);
-  void (*release_matrix_handle)(oneapi::mkl::sparse::matrix_handle_t A,
+  void (*release_matrix_handle)(oneapi::mkl::sparse::matrix_handle_t *A,
                                 const std::vector<sycl::event> &dependencies);
 
   // Buffer APIs
@@ -106,7 +107,7 @@ typedef struct {
   void (*sgemv_buf)(sycl::queue                          &queue,
                     oneapi::mkl::transpose               transpose,
                     const float                          alpha,
-                    oneapi::mkl::sparse::matrix_t        A,
+                    oneapi::mkl::sparse::matrix_handle_t A,
                     sycl::buffer<float, 1>               &x,
                     const float                          beta,
                     sycl::buffer<float, 1>               &y);

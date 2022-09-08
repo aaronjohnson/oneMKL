@@ -35,12 +35,12 @@ namespace oneapi {
         }
 
         void release_matrix_handle(oneapi::mkl::device device,
-                                   oneapi::mkl::sparse::matrix_handle_t  A,
+                                   oneapi::mkl::sparse::matrix_handle_t  *A,
                                    const std::vector<sycl::event> &dependencies) {
           function_tables[device].release_matrix_handle(A, dependencies);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t A,
                           std::int32_t                         num_rows,
                           std::int32_t                         num_cols,
@@ -51,7 +51,7 @@ namespace oneapi {
           function_tables[device].sset_csr_data_i4_buf(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t A,
                           std::int32_t                         num_rows,
                           std::int32_t                         num_cols,
@@ -62,7 +62,7 @@ namespace oneapi {
           function_tables[device].dset_csr_data_i4_buf(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           std::int32_t                          num_rows,
                           std::int32_t                          num_cols,
@@ -73,7 +73,7 @@ namespace oneapi {
           function_tables[device].cset_csr_data_i4_buf(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           std::int32_t                          num_rows,
                           std::int32_t                          num_cols,
@@ -84,7 +84,7 @@ namespace oneapi {
           function_tables[device].zset_csr_data_i4_buf(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           std::int64_t                          num_rows,
                           std::int64_t                          num_cols,
@@ -95,7 +95,7 @@ namespace oneapi {
           function_tables[device].sset_csr_data_i8_buf(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           std::int64_t                          num_rows,
                           std::int64_t                          num_cols,
@@ -106,7 +106,7 @@ namespace oneapi {
           function_tables[device].dset_csr_data_i8_buf(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           std::int64_t                          num_rows,
                           std::int64_t                          num_cols,
@@ -117,7 +117,7 @@ namespace oneapi {
           function_tables[device].cset_csr_data_i8_buf(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           std::int64_t                          num_rows,
                           std::int64_t                          num_cols,
@@ -128,7 +128,7 @@ namespace oneapi {
           function_tables[device].zset_csr_data_i8_buf(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           const std::int32_t                    num_rows,
                           const std::int32_t                    num_cols,
@@ -139,7 +139,7 @@ namespace oneapi {
           function_tables[device].sset_csr_data_i4_usm(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           const std::int64_t                    num_rows,
                           const std::int64_t                    num_cols,
@@ -150,7 +150,7 @@ namespace oneapi {
           function_tables[device].sset_csr_data_i8_usm(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           const std::int32_t                    num_rows,
                           const std::int32_t                    num_cols,
@@ -161,7 +161,7 @@ namespace oneapi {
           function_tables[device].dset_csr_data_i4_usm(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           const std::int64_t                    num_rows,
                           const std::int64_t                    num_cols,
@@ -172,7 +172,7 @@ namespace oneapi {
           function_tables[device].dset_csr_data_i8_usm(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           const std::int32_t                    num_rows,
                           const std::int32_t                    num_cols,
@@ -183,7 +183,7 @@ namespace oneapi {
           function_tables[device].cset_csr_data_i4_usm(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           const std::int64_t                    num_rows,
                           const std::int64_t                    num_cols,
@@ -194,7 +194,7 @@ namespace oneapi {
           function_tables[device].cset_csr_data_i8_usm(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           const std::int32_t                    num_rows,
                           const std::int32_t                    num_cols,
@@ -205,7 +205,7 @@ namespace oneapi {
           function_tables[device].zset_csr_data_i4_usm(A, num_rows, num_cols, index, row_ptr, col_ind, val);
         }
 
-        void set_csr_data(oneapi::mkl::device,
+        void set_csr_data(oneapi::mkl::device device,
                           oneapi::mkl::sparse::matrix_handle_t  A,
                           const std::int64_t                    num_rows,
                           const std::int64_t                    num_cols,
