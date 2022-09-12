@@ -24,13 +24,11 @@
 #include <cstdint>
 
 #include "oneapi/mkl/types.hpp"
+#include "oneapi/mkl/spblas/types.hpp"
 
 namespace oneapi {
 namespace mkl {
 namespace sparse {
-
-struct matrix_handle;
-typedef struct matrix_handle *matrix_handle_t;
 
   void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A);
 

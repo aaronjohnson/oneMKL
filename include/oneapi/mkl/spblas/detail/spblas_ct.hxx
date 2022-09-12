@@ -115,7 +115,7 @@
                           sycl::buffer<float, 1>                &x,
                           const float                           beta,
                           sycl::buffer<float, 1>                &y) {
-    oneapi::mkl::sparse::BACKEND::gemv(get_device_id(queue), queue, transpose, alpha, A, x, beta, y);
+    oneapi::mkl::sparse::BACKEND::gemv(queue, transpose, alpha, A, x, beta, y);
   }
 
   static inline void gemv(sycl::queue                           &queue,
@@ -125,7 +125,7 @@
                           sycl::buffer<double, 1>               &x,
                           const double                          beta,
                           sycl::buffer<double, 1>               &y) {
-    oneapi::mkl::sparse::BACKEND::gemv(get_device_id(queue), queue, transpose, alpha, A, x, beta, y);
+    oneapi::mkl::sparse::BACKEND::gemv(queue, transpose, alpha, A, x, beta, y);
   }
 
   static inline void gemv(sycl::queue                           &queue,
@@ -135,7 +135,7 @@
                           sycl::buffer<std::complex<float>, 1>  &x,
                           const std::complex<float>             beta,
                           sycl::buffer<std::complex<float>, 1>  &y) {
-    oneapi::mkl::sparse::BACKEND::gemv(get_device_id(queue), queue, transpose, alpha, A, x, beta, y);
+    oneapi::mkl::sparse::BACKEND::gemv(queue, transpose, alpha, A, x, beta, y);
   }
 
   static inline void gemv(sycl::queue                           &queue,
@@ -145,7 +145,7 @@
                           sycl::buffer<std::complex<double>, 1> &x,
                           const std::complex<double>            beta,
                           sycl::buffer<std::complex<double>, 1> &y) {
-    oneapi::mkl::sparse::BACKEND::gemv(get_device_id(queue), queue, transpose, alpha, A, x, beta, y);
+    oneapi::mkl::sparse::BACKEND::gemv(queue, transpose, alpha, A, x, beta, y);
   }
 
   // USM APIs
@@ -239,7 +239,7 @@
                           const float                          beta,
                           const float                          *y,
                           const std::vector<sycl::event>       &dependencies) {
-    oneapi::mkl::sparse::BACKEND::gemv(get_device_id(queue), queue, transpose, alpha, A, x, beta, y, dependencies);
+    oneapi::mkl::sparse::BACKEND::gemv(queue, transpose, alpha, A, x, beta, y, dependencies);
   }
 
   static inline void gemv(sycl::queue                          &queue,
@@ -250,7 +250,7 @@
                           const double                         beta,
                           const double                         *y,
                           const std::vector<sycl::event>       &dependencies) {
-    oneapi::mkl::sparse::BACKEND::gemv(get_device_id(queue), queue, transpose, alpha, A, x, beta, y, dependencies);
+    oneapi::mkl::sparse::BACKEND::gemv(queue, transpose, alpha, A, x, beta, y, dependencies);
   }
 
   static inline void gemv(sycl::queue                          &queue,
@@ -261,7 +261,7 @@
                           const std::complex<float>            beta,
                           const std::complex<float>            *y,
                           const std::vector<sycl::event>       &dependencies) {
-    oneapi::mkl::sparse::BACKEND::gemv(get_device_id(queue), queue, transpose, alpha, A, x, beta, y, dependencies);
+    oneapi::mkl::sparse::BACKEND::gemv(queue, transpose, alpha, A, x, beta, y, dependencies);
   }
 
   static inline void gemv(sycl::queue                          &queue,
@@ -272,5 +272,5 @@
                           const std::complex<double>           beta,
                           const std::complex<double>           *y,
                           const std::vector<sycl::event>       &dependencies) {
-    oneapi::mkl::sparse::BACKEND::gemv(get_device_id(queue), queue, transpose, alpha, A, x, beta, y, dependencies);
+    oneapi::mkl::sparse::BACKEND::gemv(queue, transpose, alpha, A, x, beta, y, dependencies);
   }

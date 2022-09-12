@@ -23,16 +23,16 @@ d* Copyright 2022 Intel Corporation
 #include <CL/sycl.hpp>
 #endif
 
-#include "oneapi/mkl/spblas/detail/mklcpu/onemkl_spblas_mklcpu.hpp"
+#include "oneapi/mkl/spblas/detail/mklgpu/onemkl_spblas_mklgpu.hpp"
 
 namespace oneapi {
 namespace mkl {
 namespace sparse {
-namespace mklcpu {
+namespace mklgpu {
 
 #include "../mkl_common/mkl_spblas.cxx"
 
-} // namespace mklcpu
+} // namespace mklgpu
 } // namespace sparse
 } // namespace mkl
 } // namespace oneapi
