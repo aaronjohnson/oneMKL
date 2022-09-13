@@ -18,9 +18,4 @@
 #===============================================================================
 
 add_subdirectory(compile_time_dispatching)
-
-if (BUILD_SHARED_LIBS)
-  add_subdirectory(run_time_dispatching)
-else()
-  message(VERBOSE, "run-time dispatching spblas example compilation is only possible with dynamic libraries, when BUILD_SHARED_LIBS is true.")
-endif()
+add_subdirectory(run_time_dispatching)
