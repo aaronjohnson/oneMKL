@@ -200,7 +200,7 @@ namespace sparse {
   static inline void set_csr_data(oneapi::mkl::sparse::matrix_handle_t A,
                                   const std::int64_t                   num_rows,
                                   const std::int64_t                   num_cols,
-                                  oneapi::mkl::index_se                index_base,
+                                  oneapi::mkl::index_base              index_base,
                                   std::int64_t                         *row_ptr,
                                   std::int64_t                         *col_ind,
                                   std::complex<double>                 *val) {
