@@ -103,7 +103,7 @@ namespace sparse {
                                   oneapi::mkl::index_base              index_base,
                                   sycl::buffer<std::int64_t, 1>        &row_ptr,
                                   sycl::buffer<std::int64_t, 1>        &col_ind,
-                                  sycl::buffer<std::complex<fl             oat>, 1> &val) {
+                                  sycl::buffer<std::complex<float>, 1> &val) {
     detail::set_csr_data(A, num_rows, num_cols, index, row_ptr, col_ind, val);
   }
 
