@@ -17,18 +17,18 @@
  * SPDX-License-Identifier: Apache-2.0
  *******************************************************************************/
 
-void init_matrix_handle(matrix_handle_t *A) {
+void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A) {
   ::oneapi::mkl::sparse::init_matrix_handle(A);
 }
 
-void release_matrix_handle(matrix_handle_t                *A,
+void release_matrix_handle(oneapi::mkl::sparse::matrix_handle_t                *A,
                            const std::vector<sycl::event> &dependencies) {
   ::oneapi::mkl::sparse::release_matrix_handle(A, dependencies);
 }
 
 // Buffer APIs
 
-void set_csr_data(matrix_handle_t               A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t               A,
                   const std::int32_t            num_rows,
                   const std::int32_t            num_cols,
                   oneapi::mkl::index_base       index_base,
@@ -38,7 +38,7 @@ void set_csr_data(matrix_handle_t               A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t               A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t               A,
                   const std::int64_t            num_rows,
                   const std::int64_t            num_cols,
                   oneapi::mkl::index_base       index_base,
@@ -48,7 +48,7 @@ void set_csr_data(matrix_handle_t               A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t               A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t               A,
                   const std::int32_t            num_rows,
                   const std::int32_t            num_cols,
                   oneapi::mkl::index_base       index_base,
@@ -58,7 +58,7 @@ void set_csr_data(matrix_handle_t               A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t               A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t               A,
                   const std::int64_t            num_rows,
                   const std::int64_t            num_cols,
                   oneapi::mkl::index_base       index_base,
@@ -68,7 +68,7 @@ void set_csr_data(matrix_handle_t               A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t                      A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t                      A,
                   const std::int32_t                   num_rows,
                   const std::int32_t                   num_cols,
                   oneapi::mkl::index_base              index_base,
@@ -78,7 +78,7 @@ void set_csr_data(matrix_handle_t                      A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t                      A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t                      A,
                   const std::int64_t                   num_rows,
                   const std::int64_t                   num_cols,
                   oneapi::mkl::index_base              index_base,
@@ -88,7 +88,7 @@ void set_csr_data(matrix_handle_t                      A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t                       A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t                       A,
                   const std::int32_t                    num_rows,
                   const std::int32_t                    num_cols,
                   oneapi::mkl::index_base               index_base,
@@ -98,7 +98,7 @@ void set_csr_data(matrix_handle_t                       A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t                       A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t                       A,
                   const std::int64_t                    num_rows,
                   const std::int64_t                    num_cols,
                   oneapi::mkl::index_base               index_base,
@@ -150,7 +150,7 @@ void gemv(sycl::queue                           &queue,
 
 // USM APIs
 
-void set_csr_data(matrix_handle_t         A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
                   const std::int32_t      num_rows,
                   const std::int32_t      num_cols,
                   oneapi::mkl::index_base index_base,
@@ -160,7 +160,7 @@ void set_csr_data(matrix_handle_t         A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t         A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
                   const std::int64_t      num_rows,
                   const std::int64_t      num_cols,
                   oneapi::mkl::index_base index_base,
@@ -170,7 +170,7 @@ void set_csr_data(matrix_handle_t         A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t         A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
                   const std::int32_t      num_rows,
                   const std::int32_t      num_cols,
                   oneapi::mkl::index_base index_base,
@@ -180,7 +180,7 @@ void set_csr_data(matrix_handle_t         A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t         A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
                   const std::int64_t      num_rows,
                   const std::int64_t      num_cols,
                   oneapi::mkl::index_base index_base,
@@ -190,7 +190,7 @@ void set_csr_data(matrix_handle_t         A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t         A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
                   const std::int32_t      num_rows,
                   const std::int32_t      num_cols,
                   oneapi::mkl::index_base index_base,
@@ -200,7 +200,7 @@ void set_csr_data(matrix_handle_t         A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t         A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
                   const std::int64_t      num_rows,
                   const std::int64_t      num_cols,
                   oneapi::mkl::index_base index_base,
@@ -210,7 +210,7 @@ void set_csr_data(matrix_handle_t         A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t         A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
                   const std::int32_t      num_rows,
                   const std::int32_t      num_cols,
                   oneapi::mkl::index_base index_base,
@@ -220,7 +220,7 @@ void set_csr_data(matrix_handle_t         A,
   ::oneapi::mkl::sparse::set_csr_data(A, num_rows, num_cols, index_base, row_ptr, col_ind, val);
 }
 
-void set_csr_data(matrix_handle_t         A,
+void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
                   const std::int64_t      num_rows,
                   const std::int64_t      num_cols,
                   oneapi::mkl::index_base index_base,

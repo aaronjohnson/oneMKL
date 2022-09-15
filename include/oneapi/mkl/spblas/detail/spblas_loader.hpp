@@ -37,6 +37,9 @@ namespace mkl {
 namespace sparse {
 namespace detail {
 
+  // this looks the same as "onemkl_sbplas_backends.hxx above which is included into _ct
+  // include ? or change this?
+
   ONEMKL_EXPORT void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A);
 
   ONEMKL_EXPORT void release_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A,

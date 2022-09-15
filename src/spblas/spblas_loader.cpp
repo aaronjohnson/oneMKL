@@ -23,9 +23,9 @@
 #include "spblas/function_table.hpp"
 
 namespace oneapi {
-  namespace mkl {
-    namespace sparse {
-      namespace detail {
+namespace mkl {
+namespace sparse {
+namespace detail {
 
         static oneapi::mkl::detail::table_initializer<domain::spblas, spblas_function_table_t> function_tables;
 
@@ -311,7 +311,7 @@ namespace oneapi {
                   const std::vector<sycl::event>       &dependencies)  {
           function_tables[device].zgemv_usm(queue, transpose, alpha, A, x, beta, y, dependencies);
         }
-      } //namespace detail
-    } //namespace sparse
-  } //namespace mkl
+} //namespace detail
+} //namespace sparse
+} //namespace mkl
 } //namespace oneapi

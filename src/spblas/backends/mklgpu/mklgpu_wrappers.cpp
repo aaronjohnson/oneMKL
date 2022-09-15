@@ -24,7 +24,7 @@
 
 extern "C" ONEMKL_EXPORT spblas_function_table_t mkl_spblas_table = {
     WRAPPER_VERSION,
-#define SPBLAS_BACKEND mklgpu
+#define BACKEND mklgpu
 #include"../mkl_common/spblas_wrappers.cxx"
 #undef SPBLAS_BACKEND
 };

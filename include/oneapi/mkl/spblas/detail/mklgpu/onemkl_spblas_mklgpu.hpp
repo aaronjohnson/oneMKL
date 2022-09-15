@@ -31,7 +31,6 @@
 
 #include "oneapi/mkl/types.hpp"
 #include "oneapi/mkl/spblas/types.hpp"
-//#include "oneapi/mkl/spblas.hpp"
 #include "oneapi/mkl/detail/export.hpp"
 
 namespace oneapi {
