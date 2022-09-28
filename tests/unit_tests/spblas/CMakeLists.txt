@@ -18,7 +18,7 @@
 #===============================================================================
 
 # Build object from all test sources
-set(SOURCES "gemv.cpp")
+set(SOURCES "init_matrix_handle.cpp")
 
 if(BUILD_SHARED_LIBS)
   add_library(spblas_rt OBJECT ${SOURCES})

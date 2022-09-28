@@ -24,8 +24,3 @@
 #ifdef ENABLE_MKLCPU_BACKEND
 #include "oneapi/mkl/spblas/detail/mklcpu/spblas_ct.hpp"
 #endif
-#ifdef ENABLE_MKLGPU_BACKEND
-#include "oneapi/mkl/spblas/detail/mklgpu/spblas_ct.hpp"
-#endif
-
-//#include "oneapi/mkl/spblas/detail/spblas_rt.hpp"
