@@ -29,7 +29,6 @@ if(BUILD_SHARED_LIBS)
       PUBLIC ${PROJECT_SOURCE_DIR}/include
       PUBLIC ${PROJECT_SOURCE_DIR}/deps/googletest/include
       PUBLIC ${CMAKE_BINARY_DIR}/bin
-      PUBLIC ${CBLAS_INCLUDE}
   )
   if (USE_ADD_SYCL_TO_TARGET_INTEGRATION)
     add_sycl_to_target(TARGET spblas_rt SOURCES ${SOURCES})
@@ -39,14 +38,13 @@ if(BUILD_SHARED_LIBS)
 endif()
 
 add_library(spblas_ct OBJECT ${SOURCES})
-
+target_compile_options(spblas_ct PRIVATE -DNOMINMAX)
 target_include_directories(spblas_ct
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../include
     PUBLIC ${PROJECT_SOURCE_DIR}/include
     PUBLIC ${PROJECT_SOURCE_DIR}/deps/googletest/include
     PUBLIC ${CMAKE_BINARY_DIR}/bin
-    PUBLIC ${CBLAS_INCLUDE}
 )
 if (USE_ADD_SYCL_TO_TARGET_INTEGRATION)
   add_sycl_to_target(TARGET spblas_ct SOURCES ${SOURCES})

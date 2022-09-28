@@ -23,6 +23,8 @@
 #include <CL/sycl.hpp>
 #endif
 
+#include "oneapi/mkl/spblas.hpp"
+
 #include "oneapi/mkl/spblas/detail/mklcpu/onemkl_spblas_mklcpu.hpp"
 
 namespace oneapi {
@@ -30,7 +32,9 @@ namespace mkl {
 namespace sparse {
 namespace mklcpu {
 
+#define BACKEND mklcpu
 #include "../mkl_common/mkl_spblas.cxx"
+#undef BACKEND
 
 } // namespace mklcpu
 } // namespace sparse

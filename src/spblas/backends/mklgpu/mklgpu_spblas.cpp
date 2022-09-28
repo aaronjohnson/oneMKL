@@ -30,7 +30,9 @@ namespace mkl {
 namespace sparse {
 namespace mklgpu {
 
+#define BACKEND mklgpu
 #include "../mkl_common/mkl_spblas.cxx"
+#undef BACKEND
 
 } // namespace mklgpu
 } // namespace sparse

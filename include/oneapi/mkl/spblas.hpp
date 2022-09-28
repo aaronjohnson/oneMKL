@@ -28,4 +28,4 @@
 #include "oneapi/mkl/spblas/detail/mklgpu/spblas_ct.hpp"
 #endif
 
-#include "oneapi/mkl/spblas/detail/spblas_rt.hpp"
+//#include "oneapi/mkl/spblas/detail/spblas_rt.hpp"

@@ -147,7 +147,6 @@ void gemv(sycl::queue                           &queue,
           sycl::buffer<std::complex<double>, 1> &y) {
   ::oneapi::mkl::sparse::gemv(queue, transpose, alpha, A, x, beta, y);
 }
-
 // USM APIs
 
 void set_csr_data(oneapi::mkl::sparse::matrix_handle_t         A,
