@@ -20,3 +20,7 @@
 static inline void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A) {
   oneapi::mkl::sparse::BACKEND::init_matrix_handle(A);
 }
+
+static inline void set_csr_data() {
+  oneapi::mkl::sparse::BACKEND::set_csr_data();
+}

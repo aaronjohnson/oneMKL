@@ -18,3 +18,4 @@
  *******************************************************************************/
 
 ONEMKL_EXPORT void init_matrix_handle(oneapi::mkl::sparse::matrix_handle_t *A);
+ONEMKL_EXPORT void set_csr_data();

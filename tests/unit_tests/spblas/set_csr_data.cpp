@@ -30,7 +30,6 @@
 #endif
 #include "oneapi/mkl/detail/config.hpp"
 #include "oneapi/mkl.hpp"
-//#include "test_common.hpp"
 #include "test_helper.hpp"
 
 #include <gtest/gtest.h>
@@ -40,28 +39,17 @@ using std::vector;
 
 namespace {
 
-int test_declaration_of_matrix_handle_t() {
-  oneapi::mkl::sparse::matrix_handle_t *A;
-  return 1;
-}
-
-int test_init_matrix_handle() {
+int test_set_csr_data() {
   oneapi::mkl::sparse::matrix_handle_t *A;
   oneapi::mkl::sparse::init_matrix_handle(A);
-
+  oneapi::mkl::sparse::set_csr_data();
   return 1;
 }
 
-class InitMatrixHandleTests : public ::testing::Test {};
+class SetCSRDataTests : public ::testing::Test {};
 
-  TEST(InitMatrixHandleTestSuite, declarationOfMatrixHandle) {
-    EXPECT_TRUEORSKIP(test_declaration_of_matrix_handle_t());
+  TEST(SetCSRDataTestSuite, setCSRData) {
+    EXPECT_TRUEORSKIP(test_set_csr_data());
   }
-
-  TEST(InitMatrixHandleTestSuite, initializeMatrixHandle) {
-    EXPECT_TRUEORSKIP(test_init_matrix_handle());
-  }
-
-
 
 } // anonymous namespace

@@ -36,8 +36,6 @@ namespace oneapi {
 namespace mkl {
 namespace sparse {
 
-  //#include "oneapi/mkl/spblas/detail/spblas_ct_asdf.hpp"
-
 #define BACKEND mklcpu
 #include "oneapi/mkl/spblas/detail/spblas_ct.hxx"
 #undef BACKEND
